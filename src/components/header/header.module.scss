@@ -1,0 +1,13 @@
+@import "../../style/mixins.scss";
+body {
+  header {
+    background-color: #0d0d0d;
+    .header__content {
+      height: 200px;
+      @include flex(center, center);
+      img {
+        width: 130px;
+      }
+    }
+  }
+}
