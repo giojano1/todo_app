@@ -96,7 +96,11 @@ const Todo = () => {
   useEffect(() => {
     const compNum = tasks.filter((task) => task.completed).length;
     const totalNum = tasks.length;
-    setCompletedTasks(`${compNum} of ${totalNum}`);
+    if (totalNum > 0) {
+      setCompletedTasks(`${compNum} of ${totalNum}`);
+    } else {
+      setCompletedTasks(0);
+    }
   }, [tasks]);
 
   if (error) return <div>Error: {error}</div>;
@@ -130,7 +134,9 @@ const Todo = () => {
             </div>
             <div className={styles.completed}>
               <p>Completed</p>
-              <span>{completedTasks}</span>
+              <span className={tasks.length > 0 ? styles.two : ""}>
+                {completedTasks}
+              </span>
             </div>
           </div>
           <div className={styles.list__items}>
