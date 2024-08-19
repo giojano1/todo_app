@@ -147,8 +147,16 @@ body {
               }
             }
           }
+          .show {
+            display: flex !important;
+          }
         }
       }
+    }
+    .error {
+      text-align: center;
+      color: white;
+      margin: 50px;
     }
   }
 }

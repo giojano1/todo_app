@@ -103,7 +103,7 @@ const Todo = () => {
     }
   }, [tasks]);
 
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div className={styles.error}>Error: {error}</div>;
   return (
     <section className={styles.todo__container}>
       <div className={styles.todo__content}>
@@ -140,7 +140,11 @@ const Todo = () => {
             </div>
           </div>
           <div className={styles.list__items}>
-            <div className={styles.empty}>
+            <div
+              className={`${styles.empty} ${
+                tasks.length > 0 ? "" : styles.show
+              }`}
+            >
               <img src={emptyIcon} alt="empty" />
               <p>
                 You don't have any tasks registered yet Create tasks and
