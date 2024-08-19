@@ -1,0 +1,151 @@
+@import "../../style/mixins.scss";
+body {
+  main {
+    .todo__container {
+      margin-top: -29px;
+      .todo__content {
+        @include container();
+        .task__input {
+          form {
+            @include flex(center, center);
+            label {
+              width: 100%;
+              margin-right: 10px;
+              input {
+                width: 100%;
+                flex: 1;
+                height: 54px;
+                background-color: #262626;
+                border: none;
+                border-radius: 8px;
+                padding: 0px 16px;
+                color: #808080;
+                font-size: 16px;
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+            button {
+              @include flex(center, center);
+              height: 54px;
+              width: 80px;
+              background-color: #1e6f9f;
+              border: none;
+              color: #f2f2f2;
+              font-weight: bold;
+              border-radius: 8px;
+              img {
+                margin-left: 5px;
+                width: 16px;
+                height: 16px;
+              }
+            }
+          }
+        }
+        .task__list {
+          margin-top: 65px;
+          width: 100%;
+          .list__header {
+            @include flex(space-between, center);
+            width: 100%;
+            .created,
+            .completed {
+              @include flex(center, center);
+              p {
+                font-size: 14px;
+                font-weight: bold;
+              }
+              span {
+                @include flex(center, center);
+                margin-left: 10px;
+                color: #d9d9d9;
+                background-color: #333333;
+                border-radius: 50%;
+                width: 25px;
+                height: 20px;
+                font-size: 13px;
+              }
+            }
+            .created {
+              p {
+                color: #4ea8de;
+              }
+            }
+            .completed {
+              p {
+                color: #8284fa;
+              }
+              span {
+                width: fit-content;
+              }
+            }
+          }
+        }
+        .list__items {
+          min-height: 250px;
+          margin-top: 25px;
+          border-radius: 8px;
+          border-top: 1px solid #333333;
+          .empty {
+            display: none !important;
+            @include flex(center, center);
+            text-align: center;
+            flex-direction: column;
+            margin: 70px 0px;
+            img {
+              width: 56px;
+            }
+            p {
+              margin-top: 15px;
+              color: #808080;
+              font-size: 16px;
+              max-width: 400px;
+            }
+          }
+          .task {
+            @include flex(space-between, center);
+            background-color: #262626;
+            border-radius: 8px;
+            padding: 16px;
+            &:not(:last-child) {
+              margin-bottom: 15px;
+            }
+            .task__title {
+              @include flex(auto, center);
+              button {
+                background-color: transparent;
+                border: none;
+                width: 20px;
+                height: 20px;
+                img {
+                  display: flex;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+              p {
+                margin-left: 15px;
+                font-size: 14px;
+                color: #f2f2f2;
+                line-height: 140%;
+              }
+              .completed {
+                color: #808080;
+                text-decoration: line-through;
+              }
+            }
+            .remove__btn {
+              background-color: transparent;
+              border: none;
+              img {
+                display: flex;
+                width: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
